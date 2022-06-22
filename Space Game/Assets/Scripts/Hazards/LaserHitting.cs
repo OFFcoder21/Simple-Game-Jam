@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserHitting : MonoBehaviour
 {
+    [SerializeField] float laserReloadTime;
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private BoxCollider2D box;
     //Hitting the player
@@ -19,10 +20,10 @@ public class LaserHitting : MonoBehaviour
         Debug.Log("getting the signal");
         while (true)
         {
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(laserReloadTime);
             sprite.enabled = false;
             box.enabled = false;
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(laserReloadTime);
             sprite.enabled = true;
             box.enabled = true;
             

@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf16b87a1cafc664c89d37429559ed86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserReloadTime: 3
   sprite: {fileID: 4558140560963357307}
   box: {fileID: 4558140560963357305}
 --- !u!61 &4558140560963357305
