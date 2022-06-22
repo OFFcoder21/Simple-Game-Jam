@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(fireCooldown);
         canShoot = true;
+        yeild return null;
     }
 
     IEnumerator Death()
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         health = 5;
         SceneManager.LoadScene(0);
+        yeild return null;
     }
 
     void OnCollisionEnter2D(Collision2D other)
