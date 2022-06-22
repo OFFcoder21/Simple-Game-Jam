@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-        Instantiate(music);
+        //anim = GetComponent<Animator>();
+        //Instantiate(music);
     }
 
     void Update()
@@ -45,10 +45,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Death());
         }
         float move = Input.GetAxis("Horizontal");
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isGrounded", IsGrounded);
-        anim.SetInteger("health", health);
-        if (Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
+        //anim.SetBool("isWalking", isWalking);
+        //anim.SetBool("isGrounded", IsGrounded);
+        //anim.SetInteger("health", health);
+
+        /*if (Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
             Physics2D.Linecast(transform.position, GroundCheck_L.position, 1 << LayerMask.NameToLayer("Ground")) ||
             Physics2D.Linecast(transform.position, GroundCheck_R.position, 1 << LayerMask.NameToLayer("Ground")))
         {
@@ -57,22 +58,26 @@ public class PlayerController : MonoBehaviour
         else
         {
             IsGrounded = false;
-        }
+        }*/
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(runSpeed, rb.velocity.y);
-            //sr.flipX = false;
+            rb.velocity += new Vector2(runSpeed * Time.deltaTime, 0);
+            sr.flipX = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
-            //sr.flipX = true;
+            rb.velocity += new Vector2(-runSpeed * Time.deltaTime, 0);
+            sr.flipX = true;
         }
-        if (Input.GetKeyDown(KeyCode.W) && IsGrounded == true)
+        else if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            rb.velocity += new Vector2(0, runSpeed * Time.deltaTime);
         }
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.S))
+        {
+            rb.velocity += new Vector2(0, -runSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             isWalking = true;
         }
