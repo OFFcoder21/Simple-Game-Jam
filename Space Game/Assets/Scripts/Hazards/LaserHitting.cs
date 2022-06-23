@@ -17,7 +17,7 @@ public class LaserHitting : MonoBehaviour
     }
     IEnumerator start()
     {
-        Debug.Log("getting the signal");
+        
         while (true)
         {
             yield return new WaitForSecondsRealtime(laserReloadTime);
@@ -32,6 +32,6 @@ public class LaserHitting : MonoBehaviour
     private void Start()
     {
         StartCoroutine("start");
-        Debug.Log("HaveStart");
+        
     }
 }
