@@ -14,15 +14,15 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 25f;
     public int Coins = 0;
     public Text CoinsText;
-    public Transform GroundCheck;
-    public Transform GroundCheck_L;
-    public Transform GroundCheck_R;
+    //public Transform GroundCheck;
+    //public Transform GroundCheck_L;
+    //public Transform GroundCheck_R;
     public Transform music;
     public Transform coinPick;
     public GameObject bullet;
     public Transform bulletPos;
     public static bool canShoot = true;
-    public static int health = 5;
+    public int health = 5;
     public float fireCooldown = 1f;
 
     public bool isWalking = false;
@@ -87,11 +87,11 @@ public class PlayerController : MonoBehaviour
         }
         if (move > 0 && !lookRight)
         {
-            Flip();
+            //Flip();
         }
         else if (move < 0 && lookRight)
         {
-            Flip();
+            //Flip();
         }
         if (Input.GetKeyDown(KeyCode.F) && canShoot)
         {
@@ -144,11 +144,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void Damage(int dmg)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            health--;
-        }
+        health -= dmg;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

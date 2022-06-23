@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Obstacle
+<<<<<<< HEAD
+=======
+  - Hazard
+>>>>>>> e0fd7cedc3c342cc0397fcec47c7fc1cbd4ae2cb
   layers:
   - Default
   - TransparentFX
@@ -12,13 +17,23 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< HEAD
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+=======
   - Ground
   - groundLayer
   - wallLayer
   - Player
-  - 
-  - 
-  - 
+  - Obstacle
+  - Enemy
+  - Hazard
+>>>>>>> e0fd7cedc3c342cc0397fcec47c7fc1cbd4ae2cb
   - 
   - 
   - 
