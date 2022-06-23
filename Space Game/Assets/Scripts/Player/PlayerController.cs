@@ -14,15 +14,15 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 25f;
     public int Coins = 0;
     public Text CoinsText;
-    public Transform GroundCheck;
-    public Transform GroundCheck_L;
-    public Transform GroundCheck_R;
+    //public Transform GroundCheck;
+    //public Transform GroundCheck_L;
+    //public Transform GroundCheck_R;
     public Transform music;
     public Transform coinPick;
     public GameObject bullet;
     public Transform bulletPos;
     public static bool canShoot = true;
-    public static int health = 5;
+    public int health = 5;
     public float fireCooldown = 1f;
 
     public bool isWalking = false;
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Obstacle"))
         {
             health--;
         }

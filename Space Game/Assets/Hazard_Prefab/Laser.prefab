@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4558140560647551340}
   - component: {fileID: 4558140560647551342}
   - component: {fileID: 4558140560647551341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4558140560963357307}
   - component: {fileID: 4558140560963357306}
   - component: {fileID: 4558140560963357305}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hitbox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -247,9 +247,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4558140561706065241}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
