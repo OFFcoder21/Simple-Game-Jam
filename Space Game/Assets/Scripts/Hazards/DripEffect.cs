@@ -5,7 +5,7 @@ using UnityEngine;
 public class DripEffect : MonoBehaviour
 {
     [SerializeField]private Transform machine;
-    private Dark dark;
+    private MonoBehaviour dark;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class DripEffect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.transform != machine)
+        if(collision.transform != machine && dark != null)
         {
             if(collision.tag == "Enemy")
             {

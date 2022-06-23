@@ -8,6 +8,6 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     private void FixedUpdate()
     {
-        transform.position = target.position;
+        transform.position = target.position + offset;
     }
 }
