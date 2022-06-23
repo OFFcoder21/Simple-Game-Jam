@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
     public Transform coinPick;
     public GameObject bullet;
     public Transform bulletPos;
-    public static bool canShoot = true;
-    public static int health = 5;
+    public bool canShoot = true;
+    public int health = 5;
     public float fireCooldown = 1f;
+    public Color color;
+
 
     public bool isWalking = false;
 
@@ -34,8 +36,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-        Instantiate(music);
+        
+        //anim = GetComponent<Animator>();
+        //Instantiate(music);
     }
 
     void Update()
@@ -45,10 +48,13 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Death());
         }
         float move = Input.GetAxis("Horizontal");
-        anim.SetBool("isWalking", isWalking);
-        anim.SetBool("isGrounded", IsGrounded);
-        anim.SetInteger("health", health);
-        if (Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
+
+        transform.localRotation = Quaternion.EulerRotation(0, 0, 0);
+        //anim.SetBool("isWalking", isWalking);
+        //anim.SetBool("isGrounded", IsGrounded);
+        //anim.SetInteger("health", health);
+
+        /*if (Physics2D.Linecast(transform.position, GroundCheck.position, 1 << LayerMask.NameToLayer("Ground")) ||
             Physics2D.Linecast(transform.position, GroundCheck_L.position, 1 << LayerMask.NameToLayer("Ground")) ||
             Physics2D.Linecast(transform.position, GroundCheck_R.position, 1 << LayerMask.NameToLayer("Ground")))
         {
@@ -57,22 +63,26 @@ public class PlayerController : MonoBehaviour
         else
         {
             IsGrounded = false;
-        }
+        }*/
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(runSpeed, rb.velocity.y);
-            //sr.flipX = false;
+            rb.velocity += new Vector2(runSpeed * Time.deltaTime, 0);
+            sr.flipX = false;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
-            //sr.flipX = true;
+            rb.velocity += new Vector2(-runSpeed * Time.deltaTime, 0);
+            sr.flipX = true;
         }
-        if (Input.GetKeyDown(KeyCode.W) && IsGrounded == true)
+        else if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            rb.velocity += new Vector2(0, runSpeed * Time.deltaTime);
         }
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.S))
+        {
+            rb.velocity += new Vector2(0, -runSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             isWalking = true;
         }
@@ -106,13 +116,35 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(fireCooldown);
         canShoot = true;
+        yield return null;
+    }
+
+    public void Damage(int amount)
+    {
+        Debug.Log("working damage");
+        health -= amount;
+        //update hearths ui
+        if(health <= 0)
+        {
+            StartCoroutine(Death());
+        }
+    }
+
+    IEnumerator PlayDamageAnim()
+    {
+        color = Color.red;
+        yield return new WaitForSecondsRealtime(1);
+        color = Color.white;
+        yield return null;
     }
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        //play death anim
         health = 5;
         SceneManager.LoadScene(0);
+        yield return null;
     }
 
     void OnCollisionEnter2D(Collision2D other)
