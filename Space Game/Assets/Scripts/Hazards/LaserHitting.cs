@@ -22,7 +22,7 @@ public class LaserHitting : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //playerController.Damage(damage);
-            PlayerController playerController = gameObject.GetComponent<PlayerController>();
+            PlayerController playerController = collision.GetComponent<PlayerController>();
             playerController.Damage(damage);
 
         }

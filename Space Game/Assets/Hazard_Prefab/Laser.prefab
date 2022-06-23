@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4558140560647551340}
   - component: {fileID: 4558140560647551342}
   - component: {fileID: 4558140560647551341}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,9 +123,9 @@ GameObject:
   - component: {fileID: 4558140560963357307}
   - component: {fileID: 4558140560963357306}
   - component: {fileID: 4558140560963357305}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: hitbox
-  m_TagString: Player
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserReloadTime: 3
+  damage: 1
   sprite: {fileID: 4558140560963357307}
   box: {fileID: 4558140560963357305}
 --- !u!61 &4558140560963357305
@@ -247,9 +248,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4558140561706065241}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Laser
-  m_TagString: Obstacle
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
