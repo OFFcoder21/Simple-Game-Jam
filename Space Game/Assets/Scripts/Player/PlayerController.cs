@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
     public Transform coinPick;
     public GameObject bullet;
     public Transform bulletPos;
-    public static bool canShoot = true;
-    public static int health = 5;
+    public bool canShoot = true;
+    public int health = 5;
     public float fireCooldown = 1f;
+    public Color color;
+
 
     public bool isWalking = false;
 
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        
         //anim = GetComponent<Animator>();
         //Instantiate(music);
     }
@@ -116,9 +119,29 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void Damage(int amount)
+    {
+        Debug.Log("working damage");
+        health -= amount;
+        //update hearths ui
+        if(health <= 0)
+        {
+            StartCoroutine(Death());
+        }
+    }
+
+    IEnumerator PlayDamageAnim()
+    {
+        color = Color.red;
+        yield return new WaitForSecondsRealtime(1);
+        color = Color.white;
+        yield return null;
+    }
+
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        //play death anim
         health = 5;
         SceneManager.LoadScene(0);
         yield return null;
