@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Death());
         }
         float move = Input.GetAxis("Horizontal");
+
+        transform.localRotation = Quaternion.EulerRotation(0, 0, 0);
         //anim.SetBool("isWalking", isWalking);
         //anim.SetBool("isGrounded", IsGrounded);
         //anim.SetInteger("health", health);
