@@ -24,8 +24,8 @@ public class Dark : MonoBehaviour
 
     IEnumerator Darken()
     {
-        image.enabled = true;
+        //image.enabled = true;
         yield return new WaitForSeconds(5f);
-        image.enabled = false;
+        //image.enabled = false;
     }
 }
