@@ -9,9 +9,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Animator anim;
-    public bool IsGrounded = true;
+    public bool IsGrounded;
     public float runSpeed = 5f;
-    public float jumpSpeed = 25f;
     public int Coins = 0;
     public Text CoinsText;
     //public Transform GroundCheck;
@@ -45,6 +44,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Death());
         }
         float move = Input.GetAxis("Horizontal");
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
         //anim.SetBool("isWalking", isWalking);
         //anim.SetBool("isGrounded", IsGrounded);
         //anim.SetInteger("health", health);
@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && canShoot)
         {
             Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            
             canShoot = false;
             StartCoroutine(FireCoolDown());
         }
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         health = 5;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("SampleScene");
         yield return null;
     }
 

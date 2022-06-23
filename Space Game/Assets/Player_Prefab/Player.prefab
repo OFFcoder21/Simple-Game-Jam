@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5749522629487015445}
   - component: {fileID: 5749522629487015451}
-  - component: {fileID: 9075500823527312372}
   - component: {fileID: 5749522629487015448}
   - component: {fileID: 5749522629487015449}
   - component: {fileID: 5749522629487015444}
@@ -51,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5749522629487015449}
   sr: {fileID: 5749522629487015444}
-  anim: {fileID: 0}
+  anim: {fileID: 5749522629487015447}
   IsGrounded: 1
   runSpeed: 3
   jumpSpeed: 25
@@ -64,19 +63,6 @@ MonoBehaviour:
   health: 5
   fireCooldown: 1
   isWalking: 0
---- !u!114 &9075500823527312372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5749522629487015454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55cbf7aa9b1eeae429e39443e0cab2a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
 --- !u!61 &5749522629487015448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90,7 +76,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.033598334, y: -0.2181735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -101,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1435447, y: 2.257238}
   m_EdgeRadius: 0
 --- !u!50 &5749522629487015449
 Rigidbody2D:
@@ -166,7 +152,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d0e38eb04d4816e48b356368b24b57b2, type: 3}
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,7 +160,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!95 &5749522629487015447
 Animator:
