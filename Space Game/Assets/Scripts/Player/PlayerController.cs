@@ -87,11 +87,11 @@ public class PlayerController : MonoBehaviour
         }
         if (move > 0 && !lookRight)
         {
-            Flip();
+            //Flip();
         }
         else if (move < 0 && lookRight)
         {
-            Flip();
+            //Flip();
         }
         if (Input.GetKeyDown(KeyCode.F) && canShoot)
         {
