@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!61 &2808856 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4558140560963357305, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+  m_PrefabInstance: {fileID: 1341483253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2808858 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4558140560963357307, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+  m_PrefabInstance: {fileID: 1341483253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &73948238
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +217,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &424382636 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4558140560963357305, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+  m_PrefabInstance: {fileID: 464846174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &424382638 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4558140560963357307, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+  m_PrefabInstance: {fileID: 464846174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &464846174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,8 +243,20 @@ PrefabInstance:
       value: Hazard
       objectReference: {fileID: 0}
     - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 424382636}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
       propertyPath: damage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 424382638}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: laserReloadTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4558140560963357311, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
       propertyPath: m_Layer
@@ -301,6 +333,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5749522629487015454, guid: 4de932ab23a1699428880d6169f67af9, type: 3}
   m_PrefabInstance: {fileID: 5749522630926100493}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &838290648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 920796596572893097, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
+  m_PrefabInstance: {fileID: 1984303035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067182179
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +378,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1067182180}
     m_Modifications:
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: box
+      value: 
+      objectReference: {fileID: 2808856}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 2808858}
+    - target: {fileID: 4558140560963357306, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
+      propertyPath: laserReloadTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4558140561706065240, guid: b76297d717246e047b56c33e6c2c78e6, type: 3}
       propertyPath: m_Name
       value: Laser
@@ -690,10 +743,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 920796595618952000, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 920796595618952002, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 920796595618952003, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 920796595618952003, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
+      propertyPath: groundDetection
+      value: 
+      objectReference: {fileID: 838290648}
     - target: {fileID: 920796595618952015, guid: d7d7fa103a79c294cb7decc2fa6e8ddb, type: 3}
       propertyPath: m_RootOrder
       value: 0
