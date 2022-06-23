@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1523572244}
-  sr: {fileID: 0}
+  sr: {fileID: 1523572249}
   anim: {fileID: 0}
   IsGrounded: 1
   runSpeed: 3
@@ -524,7 +524,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0c7b0b6c53f503245807fbcc6836bdf6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0e38eb04d4816e48b356368b24b57b2, type: 3}
   m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -144,12 +144,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void Damage(int dmg)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Hazard"))
-        {
-            health--;
-        }
+        health -= dmg;
     }
 
     public int GetHealth()
