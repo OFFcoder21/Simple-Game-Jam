@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         health = 5;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene"); // <= stage
         yield return null;
     }
 
@@ -148,6 +148,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("spike"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(Immunity());
+        }
+        if(other.gameObject.tag == "Enemy") {
+            Damage(1);
+            //add little knockback im not doing it rn bcs im tired -mrpotato
+            StartCoroutine(Immunity());
         }
         if (other.gameObject.name.Contains("coin"))
         {
@@ -173,5 +179,12 @@ public class PlayerController : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    IEnumerator Immunity()
+    {
+        //play anim
+        yield return new WaitForSecondsRealtime(3f);
+        yield return null;
     }
 }
