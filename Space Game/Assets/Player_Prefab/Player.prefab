@@ -208,8 +208,8 @@ MonoBehaviour:
   CoinsText: {fileID: 0}
   music: {fileID: 0}
   coinPick: {fileID: 0}
-  bullet: {fileID: 0}
-  bulletPos: {fileID: 0}
+  bullet: {fileID: 7618525689977507016, guid: 8af09d8f679ba374b883121dc4898f39, type: 3}
+  bulletPos: {fileID: 428155818530884729, guid: 8af09d8f679ba374b883121dc4898f39, type: 3}
   health: 5
   fireCooldown: 1
   isWalking: 0

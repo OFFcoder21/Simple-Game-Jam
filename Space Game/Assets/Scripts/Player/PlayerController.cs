@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public Transform music;
     public Transform coinPick;
     public GameObject bullet;
-    public Transform bulletPos;
+    public Transform shootPos;
     public static bool canShoot = true;
     public int health = 5;
     public float fireCooldown = 1f;
@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour
         {
             //Flip();
         }
-        if (Input.GetKeyDown(KeyCode.F) && canShoot)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
-            Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            Instantiate(bullet, shootPos.position, Quaternion.identity);
             
             canShoot = false;
             StartCoroutine(FireCoolDown());
