@@ -50,13 +50,17 @@ public class EnemyAI : MonoBehaviour
     {
         if(coll.tag == "Bullet")
         {
-            DamageEnemy();
+            DamageEnemy(1f);
+        }
+        if(coll.tag == "FireHurt")
+        {
+            DamageEnemy(1.5f); ;
         }
     }
 
-    void DamageEnemy()
+    void DamageEnemy(float damage)
     {
-        enemyHealth -= 1;
+        enemyHealth -= damage;
         if(enemyHealth <= 0)
         {
             //play death anim

@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         shootPosleft.SetActive(false);
         shootPosright.SetActive(true); 
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        //sr = gameObject.GetComponent<SpriteRenderer>();
         //anim = GetComponent<Animator>();
         //Instantiate(music);
     }
