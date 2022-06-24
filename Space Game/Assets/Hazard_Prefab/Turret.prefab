@@ -220,7 +220,7 @@ MonoBehaviour:
   detect: 0
   gun: {fileID: 3824163706914723005}
   bullet: {fileID: 3495157259380033247, guid: 67a5982592b62694e9bb8f17f20bdd7e, type: 3}
-  fireRate: 5
+  fireRate: 1
   shootPoint: {fileID: 3824163707308458205}
   bulletSpeed: 100
 --- !u!1 &3824163707308458206
