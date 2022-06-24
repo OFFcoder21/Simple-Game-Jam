@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    public Rigidbody2D rb2d;
-    public float speed;
+    public float waitDestroyTime;
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        rb2d.velocity = Vector2.right * speed * Time.fixedDeltaTime;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("AhhHHHhhhh");
+        StartCoroutine(DestroyBulletTimer());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //explosion effects
-        Destroy(gameObject);  
+        DestroyProjectile(); 
+    }
+
+    void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
+
+    IEnumerator DestroyBulletTimer()
+    {
+        yield return new WaitForSeconds(waitDestroyTime);
+        DestroyProjectile();
+        yield return null;
     }
 }

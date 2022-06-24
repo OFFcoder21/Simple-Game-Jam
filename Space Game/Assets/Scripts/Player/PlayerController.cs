@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour
     public Transform music;
     public Transform coinPick;
     public GameObject bullet;
-    public Transform shootPos;
+    public GameObject shootPosleft;
+    public GameObject shootPosright;
     public static bool canShoot = true;
     public int health = 5;
     public float fireCooldown = 1f;
+    public float bulletSpeed;
 
     public bool isWalking = false;
 
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        shootPosleft.SetActive(false);
+        shootPosright.SetActive(true); 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         //anim = GetComponent<Animator>();
@@ -44,7 +48,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Death());
         }
         float move = Input.GetAxis("Horizontal");
-        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         //anim.SetBool("isWalking", isWalking);
         //anim.SetBool("isGrounded", IsGrounded);
         //anim.SetInteger("health", health);
@@ -63,11 +67,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += new Vector2(runSpeed * Time.deltaTime, 0);
             sr.flipX = false;
+            shootPosleft.SetActive(false);
+            shootPosright.SetActive(true);
+
         }
         else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity += new Vector2(-runSpeed * Time.deltaTime, 0);
             sr.flipX = true;
+            shootPosleft.SetActive(true);
+            shootPosright.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.W))
         {
@@ -95,7 +104,18 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
-            Instantiate(bullet, shootPos.position, Quaternion.identity);
+            if (shootPosleft.active)
+            {
+                GameObject cloneBullet = Instantiate(bullet, shootPosleft.transform.position, shootPosleft.transform.rotation);
+                cloneBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.left * bulletSpeed);
+                
+            }
+            else if (shootPosright.active)
+            {
+                GameObject cloneBullet = Instantiate(bullet, shootPosright.transform.position, shootPosright.transform.rotation);
+                cloneBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
+            }
+            //Instantiate(bullet, shootPos.position, Quaternion.identity);
             
             canShoot = false;
             StartCoroutine(FireCoolDown());

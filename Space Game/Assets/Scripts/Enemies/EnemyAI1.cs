@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI1 : MonoBehaviour
 {
-    public float wait;
     public float speed;
     private bool movingRight = true;
     public Transform groundDetection;
@@ -44,13 +43,10 @@ public class EnemyAI : MonoBehaviour
                 movingRight = true;
             }
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if(coll.tag == "Bullet")
+        else if (collision.collider.tag == "Bullet")
         {
-            DamageEnemy();
+                Debug.Log("damaging me");
+                DamageEnemy();
         }
     }
 

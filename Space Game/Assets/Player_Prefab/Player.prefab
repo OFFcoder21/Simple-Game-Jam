@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2325989201715582898}
   m_Layer: 9
-  m_Name: ShootPoint
+  m_Name: ShootPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,13 +23,44 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2709949958840369312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -0.1, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.84, y: -0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5749522629487015445}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &5607268137247955905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806589243967915048}
+  m_Layer: 9
+  m_Name: ShootPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806589243967915048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607268137247955905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.78, y: -0.13000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5749522629487015445}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5749522629487015454
 GameObject:
@@ -61,10 +92,11 @@ Transform:
   m_GameObject: {fileID: 5749522629487015454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.25, y: -0.01999998, z: 0}
-  m_LocalScale: {x: 1.8737919, y: 1.5887705, z: 1}
+  m_LocalScale: {x: 1.3303125, y: 1.0625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2325989201715582898}
+  - {fileID: 806589243967915048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -174,7 +206,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0040946603, y: -0.2604921}
+  m_Offset: {x: 0.015521407, y: -0.21669745}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -185,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1612443, y: 2.3904495}
+  m_Size: {x: 1.0241203, y: 2.3028598}
   m_EdgeRadius: 0
 --- !u!114 &1570895740
 MonoBehaviour:
@@ -209,7 +241,9 @@ MonoBehaviour:
   music: {fileID: 0}
   coinPick: {fileID: 0}
   bullet: {fileID: 7618525689977507016, guid: 8af09d8f679ba374b883121dc4898f39, type: 3}
-  bulletPos: {fileID: 428155818530884729, guid: 8af09d8f679ba374b883121dc4898f39, type: 3}
+  shootPosleft: {fileID: 2709949958840369312}
+  shootPosright: {fileID: 5607268137247955905}
   health: 5
   fireCooldown: 1
+  bulletSpeed: 1500
   isWalking: 0
