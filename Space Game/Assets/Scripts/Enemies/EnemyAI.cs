@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_Patrol : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     public float speed;
     private bool movingRight = true;
     public Transform groundDetection;
+    public float enemyHealth;
+    
     private void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
@@ -40,6 +42,22 @@ public class AI_Patrol : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingRight = true;
             }
+        }
+        else if (collision.collider.tag == "Bullet")
+        {
+                Debug.Log("damaging me");
+                DamageEnemy();
+        }
+    }
+
+    void DamageEnemy()
+    {
+        enemyHealth -= 1;
+        if(enemyHealth <= 0)
+        {
+            //play death anim
+            //(spawn coin)
+            Destroy(gameObject);
         }
     }
 }

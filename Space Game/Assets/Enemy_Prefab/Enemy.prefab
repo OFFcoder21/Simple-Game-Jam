@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 920796595618952014}
   - component: {fileID: 920796595618952001}
   - component: {fileID: 920796595618952000}
-  - component: {fileID: 920796595618952003}
+  - component: {fileID: 5351123611826896165}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 920796595618952002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9817, y: -0.4972, z: 0}
-  m_LocalScale: {x: 1.1566, y: 0.6928, z: 1}
+  m_LocalScale: {x: 1.1566, y: 1.48086, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 920796596572893097}
@@ -98,7 +98,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &920796595618952003
+--- !u!114 &5351123611826896165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,11 +134,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 920796595618952002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b531dac44b1d3254f8dc938ec4bb3750, type: 3}
+  m_Script: {fileID: 11500000, guid: 99a2c09e98a503441a5a19d6e17c7034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
   groundDetection: {fileID: 920796596572893097}
+  enemyHealth: 3
 --- !u!1 &920796596572893096
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920796596572893096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: -0.85, z: 0}
+  m_LocalPosition: {x: 0.6, y: -1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
