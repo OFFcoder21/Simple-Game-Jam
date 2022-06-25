@@ -44,6 +44,12 @@ public class EnemyAI : MonoBehaviour
                 movingRight = true;
             }
         }
+        if(collision.collider.tag == "Player")
+        {
+            transform.position = new Vector2(Vector2.zero.x, Vector2.zero.y);
+            StartCoroutine(waitBeforeMoving());
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
@@ -67,5 +73,11 @@ public class EnemyAI : MonoBehaviour
             //(spawn coin)
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator waitBeforeMoving()
+    {
+        yield return new WaitForSecondsRealtime(0.7f);
+        yield return null;
     }
 }

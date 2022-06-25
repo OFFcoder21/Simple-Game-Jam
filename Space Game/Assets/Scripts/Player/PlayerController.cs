@@ -8,11 +8,13 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public SpriteRenderer sr;
+    public Color color;
     public Animator anim;
     public bool IsGrounded;
     public float runSpeed = 5f;
     public int Coins = 0;
     public Text CoinsText;
+    public Transform spwan;
     //public Transform GroundCheck;
     //public Transform GroundCheck_L;
     //public Transform GroundCheck_R;
@@ -22,13 +24,16 @@ public class PlayerController : MonoBehaviour
     public GameObject shootPosleft;
     public GameObject shootPosright;
     public static bool canShoot = true;
-    public int health = 5;
+    public int health = 3;
+    public int leftLives = 3;
     public float fireCooldown = 1f;
     public float bulletSpeed;
 
     public bool isWalking = false;
 
     private bool lookRight = true;
+    public GameObject panel;
+    //public GameObject deadPanel;
 
 
     void Start()
@@ -36,6 +41,8 @@ public class PlayerController : MonoBehaviour
         shootPosleft.SetActive(false);
         shootPosright.SetActive(true); 
         rb = GetComponent<Rigidbody2D>();
+        //color = gameObject.GetComponent<Color>();
+        //deadPanel.SetActive(false);
         //sr = gameObject.GetComponent<SpriteRenderer>();
         //anim = GetComponent<Animator>();
         //Instantiate(music);
@@ -46,6 +53,17 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             StartCoroutine(Death());
+            leftLives -= 1;
+            transform.position = spwan.transform.position;
+            if(leftLives <= 0)
+            {
+                //deadPanel.SetActive(true);
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PanelActivate();
         }
         float move = Input.GetAxis("Horizontal");
         transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -63,7 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             IsGrounded = false;
         }*/
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity += new Vector2(runSpeed * Time.deltaTime, 0);
             sr.flipX = false;
@@ -71,18 +89,18 @@ public class PlayerController : MonoBehaviour
             shootPosright.SetActive(true);
 
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity += new Vector2(-runSpeed * Time.deltaTime, 0);
             sr.flipX = true;
             shootPosleft.SetActive(true);
             shootPosright.SetActive(false);
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity += new Vector2(0, runSpeed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             rb.velocity += new Vector2(0, -runSpeed * Time.deltaTime);
         }
@@ -122,6 +140,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PanelActivate()
+    {
+        if (panel.active)
+        {
+            panel.SetActive(false);
+        }
+        else
+        {
+            panel.SetActive(true);
+        }
+    }
+
     public void Flip()
     {
         lookRight = !lookRight;
@@ -138,8 +168,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(1f);
-        health = 5;
-        SceneManager.LoadScene("SampleScene"); // <= stage
+        health = 3;
         yield return null;
     }
 
@@ -173,7 +202,11 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(int dmg)
     {
+        sr.color = color;
         health -= dmg;
+        StartCoroutine(DamageColor());
+        sr.color = Color.white; ;
+
     }
 
     public int GetHealth()
@@ -184,7 +217,13 @@ public class PlayerController : MonoBehaviour
     IEnumerator Immunity()
     {
         //play anim
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(1.5f);
+        yield return null;
+    }
+
+    IEnumerator DamageColor()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
         yield return null;
     }
 }
