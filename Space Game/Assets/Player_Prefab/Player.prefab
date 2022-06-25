@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1578362480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.045, y: 0.05, z: 1}
+  m_LocalScale: {x: 0.19047657, y: 0.20161721, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5749522629487015445}
@@ -125,15 +125,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e3e1cc498fe6bad47a063a71f0b9344d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 488acfb83ccf2704f9e8a188ebbbb1b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32, y: 64}
+  m_Size: {x: 7, y: 14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2709949958840369312
@@ -191,8 +191,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4490396103766733399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.008, y: -0.9774, z: 0}
-  m_LocalScale: {x: 0.6149686, y: 0.7323978, z: 1}
+  m_LocalPosition: {x: 0.008, y: -0.4, z: 0}
+  m_LocalScale: {x: 0.6149686, y: 0.7661568, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5749522629487015445}
@@ -350,20 +350,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5749522629487015449}
   sr: {fileID: 1578362482}
+  color: {r: 1, g: 0, b: 0, a: 0}
   anim: {fileID: 5749522629487015447}
   IsGrounded: 1
-  runSpeed: 5
+  runSpeed: 3
   Coins: 0
   CoinsText: {fileID: 0}
+  spwan: {fileID: 0}
   music: {fileID: 0}
   coinPick: {fileID: 0}
   bullet: {fileID: 7618525689977507016, guid: 8af09d8f679ba374b883121dc4898f39, type: 3}
   shootPosleft: {fileID: 2709949958840369312}
   shootPosright: {fileID: 5607268137247955905}
   health: 5
+  leftLives: 3
   fireCooldown: 1
   bulletSpeed: 1500
   isWalking: 0
+  panel: {fileID: 0}
 --- !u!1 &6506063911486558411
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +414,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.11763075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -421,7 +425,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.9717683}
   m_EdgeRadius: 0
 --- !u!114 &5749522630926100495
 MonoBehaviour:
